@@ -11,22 +11,21 @@ type Abser interface {
 
 func main() {
 	var a Abser
-	f := MyFloat(-math.Sqrt2)
+	f := Myfloat(-math.Sqrt2)
 	v := Vertex{3, 4}
 
-	a = f  // a MyFloat 实现了 Abser
-	a = &v // a *Vertex 实现了 Abser
+	a = f
+	a = &v
+	// a = f
 
-	// 下面一行，v 是一个 Vertex（而不是 *Vertex）
-	// 所以没有实现 Abser。
 	// a = v
 
 	fmt.Println(a.Abs())
 }
 
-type MyFloat float64
+type Myfloat float64
 
-func (f MyFloat) Abs() float64 {
+func (f Myfloat) Abs() float64 {
 	if f < 0 {
 		return float64(-f)
 	}
